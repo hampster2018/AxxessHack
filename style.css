@@ -96,11 +96,36 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
-    margin: 4px 2px;
     cursor: pointer;
+    width: 15rem;
+    height: 3rem;
 }
 
 .button:hover{
     background-color: var(--sec-color);
     
+}
+
+.capture-vid .button-surround{
+    width: 15rem;
+    height: 3rem;
+    margin: 0px;
+}
+
+.button-surround{
+    border: solid 2px brown;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+.button-parent{
+    border: solid 2px blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score{
+    /* display: none; */
 }

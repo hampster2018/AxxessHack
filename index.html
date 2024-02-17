@@ -43,8 +43,32 @@
                 <h1>Let's get exercising!</h1>
                 <p>Click below whenever you're ready to start your exercise.</p>
                 <script type="py" src="./videoCapture.py"></script>
-                <button class="button" id="Record Video" py-click="videoCapture.print">Start Exercise!</button>
+                <button class="button" id="Record Video" py-click="videoCapture.print" onclick="startCapture()">Start Exercise!</button>
+            </div>
+
+            <!-- score -->
+            <div class="score">
+                <div class="personalized-container">
+                    <p>Great job, Emily!</p>
+                    <p>Let's review your performance...</p>
+                </div>
+                <div class="score-container">
+                    <p>Scores:</p>
+                </div>
             </div>
         </section>
     </body>
 </html>
+
+<script>
+    function startCapture() {
+        console.log("--------Start Capture--------");
+        document.getElementById("Record Video").onclick = function() {stopCapture()};
+        document.getElementById("Record Video").innerHTML = "Stop Exercise";
+        document.getElementsByClassName("score-container").display = "block";
+    }
+
+    function stopCapture() {
+        console.log("--------Stop Capture--------");
+    }
+</script>

@@ -8,6 +8,9 @@ class VideoCapture:
     def startCapture(self, event):
         video = document.getElementById('recordingPreview').src
         print(video)
+
+    def print(self, event):
+        print('In videoCapture.py')
         
 
 videoCapture = VideoCapture()
