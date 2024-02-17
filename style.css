@@ -1,4 +1,52 @@
-.title{
-    color: red;
-    font-size: 20px;
+:root{
+    --primary-color: #53CBFB;
+    --sec-color: #0443f2;
+    --black: #040404;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar {
+    width: 102vw;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    text-align: center;
+    height: 10vh;
+    display: flex;
+    position: relative;
+    top: -2vh;
+    left: -2vh;
+}
+
+.navbar .welcome{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.welcome-msg{
+    text-align: center;
+}
+
+.welcome-msg .personal{
+    font-size: 3rem;
+    font-weight: bold;
+    border: dashed 2px pink;
+}
+
+.welcome-msg .sub-personal{
+    border: solid 2px brown;
+    margin-top: 0px;
+}
+
+.exercise-prompt{
+    font-weight: 700;
+    text-align: center;
+}
+
+.exercise-prompt .exercise{
+    font-size: 2rem;
+    color: var(--sec-color);
 }
