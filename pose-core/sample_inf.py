@@ -1,16 +1,16 @@
-from mmpose.apis import inference_topdown, init_model
+from mmpose.apis import MMPoseInferencer
 from mmpose.utils import register_all_modules
 
 register_all_modules()
 
-config_file = "td-hm_hrnet-w48_8xb32-210e_coco-256x192.py"
-checkpoint_file = "td-hm_hrnet-w48_8xb32-210e_coco-256x192-0e67c616_20220913.pth"
-model = init_model(config_file, checkpoint_file, device="cpu")  # or device='cuda:0'
+img_path = "IMG_3072.MOV"
 
-# please prepare an image with person
-results = inference_topdown(model, "demo.jpg")
+inferencer = MMPoseInferencer(
+    pose2d="td-hm_alexnet_8xb64-210e_coco-256x192.py",
+    pose2d_weights="alexnet_coco_256x192-a7b1fd15_20200727.pth",
+)
 
-print(results)
-
-# show the results on the over the image
-model.show_result("demo.jpg", results, "demo_out.jpg")
+result_generator = inferencer(img_path, show=True)
+result = next(result_generator)
+while result is not None:
+    result = next(result_generator)
