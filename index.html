@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+
+        <!-- This script tag bootstraps PyScript -->
+        <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+        <script type="module">
+            const loading = document.getElementById('loading');
+            addEventListener('py:ready', () => loading.close());
+            loading.showModal();
+        </script>
+
+        <title>Pose Estimation</title>
+    </head>
+
+    <body>
+        <section>
+            <h1>Capture Video</h1>
+            <script type="py" src="./videoCapture.py"></script>
+            <button id="Record Video" py-click="videoCapture.print">Print Something</button>
+        </section>
+    </body>
+</html>
