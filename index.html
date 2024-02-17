@@ -24,17 +24,27 @@
             <div class="navbar">
                 <p class="welcome">TheraBuddy</p>
             </div>
-            <div class="welcome-msg">
-                <p class="personal">Welcome, Emily!</p>
-                <p class="sub-personal">Let's get started with your exercises for today.</p>
+            <div class="content">
+                <div class="welcome-msg">
+                    <p class="personal">Welcome, Emily!</p>
+                    <p class="sub-personal">Let's get started with your exercises for today.</p>
+                </div>
+                <div class="exercise-card">
+                    <div class="exercise-prompt">
+                        <p style="font-size: 2rem">Today's exercise:</p>
+                        <p class="exercise">Jumping Jack</p>
+                    </div>
+                    <div class="gif">
+                        <img src="https://cdn.dribbble.com/users/2931468/screenshots/5720362/jumping-jack.gif" alt="jumping-jacl-gif" class="exercise-gif">
+                    </div>
+                </div>
             </div>
-            <div class="exercise-prompt">
-                <p>Today's exercise:</p>
-                <p class="exercise">Jumping Jack</p>
+            <div class="capture-vid">
+                <h1>Let's get exercising!</h1>
+                <p>Click below whenever you're ready to start your exercise.</p>
+                <script type="py" src="./videoCapture.py"></script>
+                <button class="button" id="Record Video" py-click="videoCapture.print">Start Exercise!</button>
             </div>
-            <h1>Capture Video</h1>
-            <script type="py" src="./videoCapture.py"></script>
-            <button id="Record Video" py-click="videoCapture.print">Print Something</button>
         </section>
     </body>
 </html>

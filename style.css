@@ -5,6 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px;
     margin: 0px;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -33,20 +34,73 @@
 .welcome-msg .personal{
     font-size: 3rem;
     font-weight: bold;
-    border: dashed 2px pink;
+    margin-bottom: 0px;
 }
 
 .welcome-msg .sub-personal{
-    border: solid 2px brown;
     margin-top: 0px;
 }
 
 .exercise-prompt{
     font-weight: 700;
     text-align: center;
+    margin-top: 6vh;
+    height: 100%;
+    width: 50%;
 }
 
 .exercise-prompt .exercise{
     font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.exercise-prompt .exercise:hover{
     color: var(--sec-color);
+    cursor: pointer;
+}
+
+.gif{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.exercise-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.content{
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    padding-top: 5px;
+}
+
+.capture-vid{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.button{
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: var(--sec-color);
+    
 }
