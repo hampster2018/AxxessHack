@@ -1,3 +1,4 @@
 .venv
 *.pth
 td-hm_hrnet-w48_8xb32-210e_coco-256x192.py
+__pycache__/videoCapture.cpython-310.pyc
