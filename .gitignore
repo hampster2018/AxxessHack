@@ -2,3 +2,4 @@
 *.pth
 td-hm_hrnet-w48_8xb32-210e_coco-256x192.py
 td-hm_alexnet_8xb64-210e_coco-256x192.py
+__pycache__
