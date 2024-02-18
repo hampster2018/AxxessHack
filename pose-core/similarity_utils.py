@@ -10,6 +10,41 @@ import json
 from shapesimilarity import shape_similarity
 
 
+def similarity_score_keypoints(json1, json2):
+    total_similarity = 0
+    total_count = 0
+    for key in json1:
+
+        if key in ["left_foot", "right_foot"]:
+            continue
+
+        # convert the coordinates to numpy arrays
+        coord1 = np.array(json1[key])
+        coord2 = np.array(json2[key])
+
+        # pad the coordinates
+        if len(coord1) < len(coord2):
+            coord1 = np.pad(
+                coord1,
+                ((0, len(coord2) - len(coord1)), (0, 0)),
+                "linear_ramp",
+            )
+        elif len(coord2) < len(coord1):
+            coord2 = np.pad(
+                coord2,
+                ((0, len(coord1) - len(coord2)), (0, 0)),
+                "linear_ramp",
+            )
+
+        print(f"similarity of {key} is {shape_similarity(coord1, coord2)}")
+
+        # add the similarity to the total
+        total_similarity += shape_similarity(coord1, coord2)
+        total_count += 1
+
+    return total_similarity / total_count
+
+
 def main():
     # grab the jsons from the pose-core folder
     json_path1 = r"D:\AxxessHack\pose-core\pro_jumping_jacks_cut_coordinates.json"
@@ -23,39 +58,9 @@ def main():
     with open(json_path2) as f:
         pose_output2 = json.load(f)
 
-    # compare the jsons using numpy and shapesimilarity
-    left_hand1 = pose_output1["left_hand"]
-    # since the coordinates are in the form [[x1, y1], [x2, y2], ...]
-    left_hand1_conv = []
-    for coord in left_hand1:
-        left_hand1_conv.append([coord[0], coord[1]])
-    left_hand1_conv = np.array(left_hand1_conv)
-
-    left_hand2 = pose_output2["left_hand"]
-    left_hand2_conv = []
-    for coord in left_hand2:
-        left_hand2_conv.append([coord[0], coord[1]])
-    left_hand2_conv = np.array(left_hand2_conv)
-
-    # for whichever coordinates are shorter, pad them with points in-between the existing points
-    # until they are the same length
-    if len(left_hand1_conv) < len(left_hand2_conv):
-        left_hand1_conv = np.pad(
-            left_hand1_conv,
-            ((0, len(left_hand2_conv) - len(left_hand1_conv)), (0, 0)),
-            "linear_ramp",
-        )
-    elif len(left_hand2_conv) < len(left_hand1_conv):
-        left_hand2_conv = np.pad(
-            left_hand2_conv,
-            ((0, len(left_hand1_conv) - len(left_hand2_conv)), (0, 0)),
-            "linear_ramp",
-        )
-
-    print(
-        "Similarity between left hand coordinates:",
-        shape_similarity(left_hand1_conv, left_hand2_conv),
-    )
+    # calculate the similarity
+    similarity = similarity_score_keypoints(pose_output1, pose_output2)
+    print(similarity)
 
 
 if __name__ == "__main__":
